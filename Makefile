@@ -9,5 +9,5 @@ clean:
 	@- $(RM) -rf $(WANDB_DIR)
 
 all:
-	@- cd build; python -m onnxsim $(MODEL_NAME).onnx $(MODEL_NAME)-sim.onnx
-	@- cd src/onnx2caffe; python convertCaffe.py ../../build/$(MODEL_NAME)-sim.onnx ../../build/$(MODEL_NAME).prototxt ../../build/$(MODEL_NAME).caffemodel
+	@- cd ${BUILD_DIR}; python -m onnxsim $(MODEL_NAME).onnx $(MODEL_NAME)-sim.onnx
+	@- cd src/onnx2caffe; python convertCaffe.py ../../${BUILD_DIR}/$(MODEL_NAME)-sim.onnx ../../${BUILD_DIR}/$(MODEL_NAME).prototxt ../../${BUILD_DIR}/$(MODEL_NAME).caffemodel
